@@ -90,15 +90,19 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'line-item-property-file' -%}
-                <p class="line-item-property__field">
-                  <label for="line-item-property-file">添付ファイル：</label>
-                  <input
-                    id="line-item-property-file"
-                    type="file"
-                    name="properties[添付ファイル]"
-                    form="{{ product_form_id }}"
-                  >
-                </p>
+                {% for tag in product.tags %}
+                  {% if tag == '2023SS' %}
+                    <p class="line-item-property__field">
+                      <label for="line-item-property-file">添付ファイル：</label>
+                      <input
+                        id="line-item-property-file"
+                        type="file"
+                        name="properties[添付ファイル]"
+                        form="{{ product_form_id }}"
+                      >
+                    </p>
+                  {% endif %}
+                {% endfor %}
               {%- when 'line-item-property-short' -%}
                 <p class="line-item-property__field">
                   <label for="line-item-property-short">名前入れ</label>
